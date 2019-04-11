@@ -1,0 +1,8 @@
+// middleware for handling the unexpected errors and logging the error using winston
+
+const winston = require("winston")
+
+module.exports = function(err, req, res, next){
+    winston.error(err.message, err)
+    res.status(500).send("Somethig Failed")
+}
